@@ -74,14 +74,14 @@ namespace CookieSample
 
             From an admin command console first enter:
              notepad C:\Windows\System32\drivers\etc\hosts
-            and add this to the file, save, and exit (and reboot?):
+            and add this to the file, save, and exit
              127.0.0.1 MsSecSample.localhost.this
 
             Then you can choose to run the app as admin (see below) or add the following ACL as admin:
              netsh http add urlacl url=http://mssecsample.localhost.this:54540/ user=[domain\user]
 
             The sample app can then be run via:
-             dnx . web
+             dnx web
             */
             app.UseOAuthAuthentication(new OAuthOptions
             {
