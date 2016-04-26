@@ -10,8 +10,6 @@ namespace OpenIdConnect.AzureAdSample
 
         private AuthenticationProperties _authProperties;
 
-        public bool HasCacheChanged { get; internal set; }
-
         public AuthPropertiesTokenCache(AuthenticationProperties authProperties) : base()
         {
             _authProperties = authProperties;
@@ -41,7 +39,6 @@ namespace OpenIdConnect.AzureAdSample
             // if state changed
             if (HasStateChanged)
             {
-                HasCacheChanged = true;
                 var cachedTokens = Serialize();
                 var cachedTokensText = Convert.ToBase64String(cachedTokens);
                 _authProperties.Items[TokenCacheKey] = cachedTokensText;
