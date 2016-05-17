@@ -113,6 +113,18 @@ namespace Microsoft.AspNetCore.Builder
         /// <exception cref="ArgumentNullException">if 'value' is null.</exception>
         public TokenValidationParameters TokenValidationParameters { get; set; } = new TokenValidationParameters();
 
+        public override string ClaimsIssuer
+        {
+            get
+            {
+                return TokenValidationParameters.AuthenticationType;
+            }
+            set
+            {
+                TokenValidationParameters.AuthenticationType = value;
+            }
+        }
+
         /// <summary>
         /// Defines whether the bearer token should be stored in the
         /// <see cref="Http.Authentication.AuthenticationProperties"/> after a successful authorization.

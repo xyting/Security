@@ -41,7 +41,7 @@ namespace Microsoft.AspNetCore.Builder
         /// <summary>
         /// Gets or sets the issuer that should be used for any claims that are created
         /// </summary>
-        public string ClaimsIssuer { get; set; }
+        public virtual string ClaimsIssuer { get; set; }
 
         /// <summary>
         /// Additional information about the authentication type which is made available to the application.

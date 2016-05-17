@@ -176,6 +176,18 @@ namespace Microsoft.AspNetCore.Builder
         /// <remarks>Contains the types and definitions required for validating a token.</remarks>
         public TokenValidationParameters TokenValidationParameters { get; set; } = new TokenValidationParameters();
 
+        public override string ClaimsIssuer
+        {
+            get
+            {
+                return TokenValidationParameters.AuthenticationType;
+            }
+            set
+            {
+                TokenValidationParameters.AuthenticationType = value;
+            }
+        }
+
         /// <summary>
         /// Indicates that the authentication session lifetime (e.g. cookies) should match that of the authentication token.
         /// If the token does not provide lifetime information then normal session lifetimes will be used.
